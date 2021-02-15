@@ -1,9 +1,10 @@
 'use strict';
 
- 
-let hours=['6AM:','7AM:','8AM:','9AM:','10AM:','11AM:','12PM:','1PM:','2PM:','3PM:','4PM:','5PM:','6PM:','7PM:','8PM:'];
 
- function randomValue(min, max) {
+let hours=['6AM:','7AM:','8AM:','9AM:','10AM:','11AM:','12PM:','1PM:','2PM:','3PM:','4PM:',
+'5PM:','6PM:','7PM:','8PM:'];
+
+function randomValue(min, max) {
 
     return Math.floor(((Math.random() * (max - min)) + min));
 
@@ -15,7 +16,7 @@ let hours=['6AM:','7AM:','8AM:','9AM:','10AM:','11AM:','12PM:','1PM:','2PM:','3P
 
 let seatlle = {
 
-    location:'seattle',
+    location:'seatlle',
     
     minCust:23,
     maxCust:65,
@@ -24,21 +25,30 @@ let seatlle = {
     customer:[],
     avgCookie:[],
     total:0,
+    randomValue: function (min, max) {
+
+        for(let i=0 ; i<hours.length ;i++){
+    
+            this.customer.push(Math.floor((randomValue(min,max))))
+        
+    
+        }
+    
+         },
      
-        avarge: function(){
+    avarge: function(){
 
-        for(let x=0 ; x<hours.length ; x++){
+    for(let x=0 ; x<hours.length ; x++){
 
 
-        this.avgCookie.push(Math.floor((this.customer[x])*this.avgCookie))
+    this.avgCookie.push(Math.floor((this.customer[x])*this.avgCookieSale))
      
-        this.total+=Math.floor((this.customer[x])*this.avgCookie)
+    this.total = this.total + this.avgCookie[x];
         
 
 
         }
 
-        return this; 
 
 
 
@@ -46,7 +56,7 @@ let seatlle = {
 
     
 
- render: function(){
+   render: function(){
     
     let body=document.getElementById('myBody');
 
@@ -56,12 +66,12 @@ let seatlle = {
 
         body.appendChild(header1);
 
-        header1.textContent = this.Location;
+        header1.textContent = this.location;
     
 
     let ulEl = document.createElement('ul');
         body.appendChild(ulEl);
-
+        
 
        
         for(let j = 0 ; j <hours.length ; j++)
@@ -72,66 +82,54 @@ let seatlle = {
 
         }
 
-}
-}
-
-
-
-function randomValue(min, max) {
-
-    for(let i=0 ; i<hours.length ;i++){
-
-        this.customer.push(Math.floor((randomValue(min,max))))
-
+        let li = document.createElement('li');
+        ulEl.appendChild(li);
+        li.textContent='Total : ' + this.total + ' Cookies';
         
 
-    }
+}
+}
 
-    
-    return this;
-
-     }
-     
-  
-seatlle.render();
+seatlle.randomValue(seatlle.minCust, seatlle.maxCust);
 seatlle.avarge();
+seatlle.render();
 
 
-
-
-
-
-  
-
-
-
-
-let TOkyo = {
+let Tokyo = {
 
     location:'Tokyo',
     
     minCust:3,
-    maxCust:24,
+    maxCust:65,
     avgCookieSale:1.2,
 
     customer:[],
     avgCookie:[],
     total:0,
+    randomValue: function (min, max) {
+
+        for(let i=0 ; i<hours.length ;i++){
+    
+            this.customer.push(Math.floor((randomValue(min,max))))
+        
+    
+        }
+    
+         },
      
-        avarge: function(){
+    avarge: function(){
 
-        for(let x=0 ; x<hours.length ; x++){
+    for(let x=0 ; x<hours.length ; x++){
 
 
-        this.avgCookie.push(Math.floor((this.customer[x])*this.avgCookie))
+    this.avgCookie.push(Math.floor((this.customer[x])*this.avgCookieSale))
      
-        this.total+=Math.floor((this.customer[x])*this.avgCookie)
+    this.total = this.total + this.avgCookie[x];
         
 
 
         }
 
-        return this; 
 
 
 
@@ -139,7 +137,7 @@ let TOkyo = {
 
     
 
- render: function(){
+   render: function(){
     
     let body=document.getElementById('myBody');
 
@@ -149,12 +147,12 @@ let TOkyo = {
 
         body.appendChild(header1);
 
-        header1.textContent = this.Location;
+        header1.textContent = this.location;
     
 
     let ulEl = document.createElement('ul');
         body.appendChild(ulEl);
-
+        
 
        
         for(let j = 0 ; j <hours.length ; j++)
@@ -165,37 +163,21 @@ let TOkyo = {
 
         }
 
-}
-}
-
-
-
-function randomValue(min, max) {
-
-    for(let i=0 ; i<hours.length ;i++){
-
-        this.customer.push(Math.floor((randomValue(min,max))))
-
+        let li = document.createElement('li');
+        ulEl.appendChild(li);
+        li.textContent='Total : ' + this.total + ' Cookies';
         
 
-    }
+}
+}
 
-    
-    return this;
-
-     }
-     
-  
-Tokyo.render();
+Tokyo.randomValue(Tokyo.minCust, Tokyo.maxCust);
 Tokyo.avarge();
-
-
-  
-
+Tokyo.render();
 
 
 
-let Dubai = {
+let Dubai= {
 
     location:'Dubai',
     
@@ -206,21 +188,30 @@ let Dubai = {
     customer:[],
     avgCookie:[],
     total:0,
+    randomValue: function (min, max) {
+
+        for(let i=0 ; i<hours.length ;i++){
+    
+            this.customer.push(Math.floor((randomValue(min,max))))
+        
+    
+        }
+    
+         },
      
-        avarge: function(){
+    avarge: function(){
 
-        for(let x=0 ; x<hours.length ; x++){
+    for(let x=0 ; x<hours.length ; x++){
 
 
-        this.avgCookie.push(Math.floor((this.customer[x])*this.avgCookie))
+    this.avgCookie.push(Math.floor((this.customer[x])*this.avgCookieSale))
      
-        this.total+=Math.floor((this.customer[x])*this.avgCookie)
+    this.total = this.total + this.avgCookie[x];
         
 
 
         }
 
-        return this; 
 
 
 
@@ -228,7 +219,7 @@ let Dubai = {
 
     
 
- render: function(){
+   render: function(){
     
     let body=document.getElementById('myBody');
 
@@ -238,12 +229,12 @@ let Dubai = {
 
         body.appendChild(header1);
 
-        header1.textContent = this.Location;
+        header1.textContent = this.location;
     
 
     let ulEl = document.createElement('ul');
         body.appendChild(ulEl);
-
+        
 
        
         for(let j = 0 ; j <hours.length ; j++)
@@ -254,34 +245,16 @@ let Dubai = {
 
         }
 
-}
-}
-
-
-
-function randomValue(min, max) {
-
-    for(let i=0 ; i<hours.length ;i++){
-
-        this.customer.push(Math.floor((randomValue(min,max))))
-
+        let li = document.createElement('li');
+        ulEl.appendChild(li);
+        li.textContent='Total : ' + this.total + ' Cookies';
         
 
-    }
-
-    
-    return this;
-
-     }
-     
-  
-Dubai.render();
+}
+}
+Dubai.randomValue(Dubai.minCust, Dubai.maxCust);
 Dubai.avarge();
-
-
-  
-
-
+Dubai.render();
 
 
 let Paris = {
@@ -295,21 +268,30 @@ let Paris = {
     customer:[],
     avgCookie:[],
     total:0,
+    randomValue: function (min, max) {
+
+        for(let i=0 ; i<hours.length ;i++){
+    
+            this.customer.push(Math.floor((randomValue(min,max))))
+        
+    
+        }
+    
+         },
      
-        avarge: function(){
+    avarge: function(){
 
-        for(let x=0 ; x<hours.length ; x++){
+    for(let x=0 ; x<hours.length ; x++){
 
 
-        this.avgCookie.push(Math.floor((this.customer[x])*this.avgCookie))
+    this.avgCookie.push(Math.floor((this.customer[x])*this.avgCookieSale))
      
-        this.total+=Math.floor((this.customer[x])*this.avgCookie)
+    this.total = this.total + this.avgCookie[x];
         
 
 
         }
 
-        return this; 
 
 
 
@@ -317,7 +299,7 @@ let Paris = {
 
     
 
- render: function(){
+   render: function(){
     
     let body=document.getElementById('myBody');
 
@@ -327,12 +309,12 @@ let Paris = {
 
         body.appendChild(header1);
 
-        header1.textContent = this.Location;
+        header1.textContent = this.location;
     
 
     let ulEl = document.createElement('ul');
         body.appendChild(ulEl);
-
+        
 
        
         for(let j = 0 ; j <hours.length ; j++)
@@ -343,36 +325,17 @@ let Paris = {
 
         }
 
-}
-}
-
-
-
-function randomValue(min, max) {
-
-    for(let i=0 ; i<hours.length ;i++){
-
-        this.customer.push(Math.floor((randomValue(min,max))))
-
+        let li = document.createElement('li');
+        ulEl.appendChild(li);
+        li.textContent='Total : ' + this.total + ' Cookies';
         
 
-    }
+}
+}
 
-    
-    return this;
-
-     }
-     
-  
-Paris.render();
+Paris.randomValue(Paris.minCust, Paris.maxCust);
 Paris.avarge();
-
-
-
-
-  
-
-
+Paris.render();
 
 
 let Lima = {
@@ -386,21 +349,30 @@ let Lima = {
     customer:[],
     avgCookie:[],
     total:0,
+    randomValue: function (min, max) {
+
+        for(let i=0 ; i<hours.length ;i++){
+    
+            this.customer.push(Math.floor((randomValue(min,max))))
+        
+    
+        }
+    
+         },
      
-        avarge: function(){
+    avarge: function(){
 
-        for(let x=0 ; x<hours.length ; x++){
+    for(let x=0 ; x<hours.length ; x++){
 
 
-        this.avgCookie.push(Math.floor((this.customer[x])*this.avgCookie))
+    this.avgCookie.push(Math.floor((this.customer[x])*this.avgCookieSale))
      
-        this.total+=Math.floor((this.customer[x])*this.avgCookie)
+    this.total = this.total + this.avgCookie[x];
         
 
 
         }
 
-        return this; 
 
 
 
@@ -408,7 +380,7 @@ let Lima = {
 
     
 
- render: function(){
+   render: function(){
     
     let body=document.getElementById('myBody');
 
@@ -418,12 +390,12 @@ let Lima = {
 
         body.appendChild(header1);
 
-        header1.textContent = this.Location;
+        header1.textContent = this.location;
     
 
     let ulEl = document.createElement('ul');
         body.appendChild(ulEl);
-
+        
 
        
         for(let j = 0 ; j <hours.length ; j++)
@@ -434,27 +406,14 @@ let Lima = {
 
         }
 
-}
-}
-
-
-
-function randomValue(min, max) {
-
-    for(let i=0 ; i<hours.length ;i++){
-
-        this.customer.push(Math.floor((randomValue(min,max))))
-
+        let li = document.createElement('li');
+        ulEl.appendChild(li);
+        li.textContent='Total : ' + this.total + ' Cookies';
         
 
-    }
+}
+}
 
-    
-    return this;
-
-     }
-     
-  
-Lima.render();
+Lima.randomValue(Lima.minCust, Lima.maxCust);
 Lima.avarge();
-
+Lima.render();
