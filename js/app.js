@@ -1,8 +1,9 @@
 'use strict';
 
 
-let hours=['6AM:','7AM:','8AM:','9AM:','10AM:','11AM:','12PM:','1PM:','2PM:','3PM:','4PM:',
-'5PM:','6PM:','7PM:','8PM:'];
+let hours=['6AM','7AM','8AM','9AM','10AM','11AM','12PM','1PM','2PM','3PM','4PM',
+'5PM','6PM','7PM','8PM'];
+
 
 let div =document.getElementById('mydiv');
 let tableEl=document.createElement('tableEl');
@@ -16,30 +17,55 @@ div.appendChild(tableEl);
 
       let td1=document.createElement('td');
       headerEl.appendChild(td1);
-      td1.textContent="     "
+      td1.textContent="     ";
 
       for (let y=0 ; y<hours.length ; y++){
           let th1=document.createElement('th');
           headerEl.appendChild(th1);
           th1.textContent=hours[y];
       }
+      let tdTotal=document.createElement('td');
+      headerEl.appendChild(tdTotal);
+      tdTotal.textContent='Daliy Location Total';
   }
 
 tableHeader();
+
+
 
 function tableFooter(){
     let footerEl= document.createElement('tr');
     tableEl.appendChild(footerEl);
 
-    let footer1=document.createElement('td');
+    let footer1=document.createElement('th');
     footerEl.appendChild(footer1);
     footer1.textContent='Total';
 
+
+     let th;
+     let sum;
+     let megaTotal=0;
+
     for (let f=0 ; f<hours.length ; f++){
-        let thFooter=document.createElement('th');
-        footerEl.appendChild(thFooter);
-        thFooter.textContent=total;
+        sum=0;
+        for( let m=0; m<arrObjects.length ; m++ ){
+        
+            sum = sum +arrObjects[m].avgCookie[f];
     }
+
+    megaTotal=megaTotal+sum;
+    
+   let  thFooter=document.createElement('th');
+
+    footerEl.appendChild(thFooter);
+    thFooter.textContent=sum;
+
+
+}
+
+    let finalTotal=document.createElement('th');
+    footerEl.appendChild(finalTotal);
+    finalTotal.textContent=megaTotal;
 }
 
 
@@ -56,7 +82,8 @@ function resturent( location,minCust,maxCust,avgCookieSale){
     this.avgCookieSale=avgCookieSale;
     this.avgCookie=[];
     this.customer=[];
-    //this.total=0;
+    this.total=0;
+    this.globalArrTotals = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 }
     resturent.prototype.randomValue=function(min, max) {
 
@@ -77,7 +104,9 @@ function resturent( location,minCust,maxCust,avgCookieSale){
 
             this.avgCookie.push(Math.floor((this.customer[x])*this.avgCookieSale))
              
-            this.total = this.total + this.avgCookie[x];
+            this.total += this.avgCookie[x];
+            this.globalArrTotals[x]=this.globalArrTotals[x] +this.avgCookie[x];
+
     }
 }
 
@@ -95,7 +124,7 @@ function resturent( location,minCust,maxCust,avgCookieSale){
         row.appendChild(td2);
         td2.textContent=this.location;
 
-   
+        
         
           
             for(let j = 0 ; j <hours.length ; j++)
@@ -104,7 +133,20 @@ function resturent( location,minCust,maxCust,avgCookieSale){
                 row.appendChild(tdEl);
                 tdEl.textContent =this.avgCookie[j];
     
-            }            
+            }
+            let pranchTotal=0;
+            for( let s=0 ;s<this.avgCookie.length ;s++){
+
+                pranchTotal=pranchTotal+this.avgCookie[s];
+
+            }
+        
+        
+            
+           let totalTd =document.createElement('th');
+           row.appendChild(totalTd);
+           totalTd.textContent=pranchTotal;
+
     
     }
 
@@ -135,10 +177,11 @@ function resturent( location,minCust,maxCust,avgCookieSale){
          Lima.randomValue(23,65);
          Lima.avarge();
          Lima.render();
+
+         let arrObjects=[seatlle,Tokyo,Dubai,Paris,Lima];
          
          tableFooter();
-
-
+         
 
 
 
