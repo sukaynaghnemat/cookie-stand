@@ -210,6 +210,8 @@ function resturent( location,minCust,maxCust,avgCookieSale){
 
             console.log(locationName, minValue, maxValue, cookiesPerHoure)
 
+            
+
             let newResturen= new resturent(locationName,minValue,maxValue,cookiesPerHoure);
 
             
