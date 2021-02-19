@@ -218,34 +218,6 @@ function resturent( location,minCust,maxCust,avgCookieSale){
             newResturen.render();
 
 
-<<<<<<< HEAD
 
 
          }
-=======
-
-
-         }
-
-
-
-         
-         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 5d2b0ce92b2f8d9faee53e84c551ec6794c595bc
