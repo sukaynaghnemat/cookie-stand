@@ -71,7 +71,7 @@ function tableFooter(){
 
 
 
-
+//let stores=[];
 
   
 
@@ -85,7 +85,10 @@ function resturent( location,minCust,maxCust,avgCookieSale){
     this.customer=[];
     this.total=0;
     this.globalArrTotals = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    //stores.push(this);
 }
+
+
     resturent.prototype.randomValue=function(min, max) {
 
         for(let i=0 ; i<hours.length ;i++){
@@ -164,6 +167,7 @@ function resturent( location,minCust,maxCust,avgCookieSale){
         Tokyo.avarge();
         Tokyo.render();
 
+
          let Dubai=new resturent('Dubai',11,38,3.7);
         Dubai.randomValue(23,65);
         Dubai.avarge();
@@ -179,9 +183,19 @@ function resturent( location,minCust,maxCust,avgCookieSale){
          Lima.avarge();
          Lima.render();
 
-         let arrObjects=[seatlle,Tokyo,Dubai,Paris,Lima];
+        //let stores=[seatlle,Tokyo,Dubai,Paris,Lima];
+
+
+
+         //for(let n=0 ; n<stores.length ; n++){
+
+            //stores[n].cookiesPerHoure();
+            //stores[n].render();
+               // }
           
          tableFooter();
+
+
          
 
 
@@ -197,26 +211,34 @@ function resturent( location,minCust,maxCust,avgCookieSale){
 
          function resturentCreator (event){
 
-              
+            
+
             event.preventDefault();
             // console.log(event)
             let locationName=event.target.nameField.value;
             
             let minValue=event.target.boxMinimum.value;
+                minValue=parseInt(minValue);
 
             let maxValue=event.target.boxMaximum.value;
+                 maxValue=parseInt(maxValue);
 
             let cookiesPerHoure=event.target.boxCookie.value;
+                cookiesPerHoure=parseFloat(cookiesPerHoure);
 
             console.log(locationName, minValue, maxValue, cookiesPerHoure)
 
+              //tableEl.deletRow(tableEl.rows.length - 1);
+
             let newResturen= new resturent(locationName,minValue,maxValue,cookiesPerHoure);
 
+
+             
             
             newResturen.randomValue(minValue, maxValue);
             newResturen.avarge();
             newResturen.render();
-
+            newResturen.tableFooter();
 
 
 
