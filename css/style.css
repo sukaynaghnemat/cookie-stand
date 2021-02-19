@@ -1,0 +1,125 @@
+*{
+    box-sizing: border-box;
+    
+}
+
+header{
+    padding: 20px;
+    position: relative;
+
+}
+
+h1{
+    display: inline-block;
+    position: absolute;
+    left: 8%;
+    top:0px;
+    font-family: 'Lobster', cursive;
+    color:rgb(37, 93, 112);
+    
+}
+#mynav{
+    position: relative;
+    background-color:rgb(231, 243, 247);
+    width: 100%;
+    height: 200px;
+}
+a{
+    text-decoration: none;
+    color:rgb(104, 104, 224);
+}
+#logo{
+    position: relative;
+    top: 20px;
+}
+#headparagraph{
+    position: relative;
+    top:20px;
+    left: 8%;
+    color:rgb(66, 121, 139);
+}
+
+nav ul{
+    display:inline;
+    text-decoration: none;
+    
+}
+nav ul li{
+    display: inline;
+    float: right;
+    margin-right: 50px;
+    
+}
+
+#mainimgs{
+    padding: 20px; 
+    align: center;
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+#welcome{
+    position: relative;
+    font-family: 'Caveat', cursive;
+    font-size: larger;
+    color: lightskyblue;
+    padding: 5px;
+    margin-bottom: 50px;
+    margin-left: 70px;
+    margin-right: 70px;
+    bottom:150px;
+
+}
+#welcome p:hover{
+    opacity: .5;
+}
+
+#footer{
+    color: lightskyblue;
+    background-color:rgb(4, 65, 102);
+    
+    
+    margin-right: 30px;
+    text-align: center;
+    width: 100%;
+
+
+}
+
+ #resturentForm{
+     text-align: center;
+     background-color: rgb(162, 214, 231);
+     height: 150px;
+ }
+
+ #mydiv tableEl{
+    border: 1px solid rgb(117, 166, 197);
+     background-color: rgb(32, 57, 73);
+     text-align: center;
+     margin-left: 1s0px;
+     
+ }
+#mydiv  td{
+     background-color: lightskyblue;
+     border: 3px solid rgb(93, 124, 143);
+     height: 50px;
+     width: 70px;
+
+ }
+ 
+ #mydiv th{
+    border: 3px solid rgb(135, 206, 250);
+    background-color: rgb(161, 186, 211);
+ }
+
+ footer{
+     margin-top: 150px;
+ }
+ 
+
+
+
+
+
+
+
