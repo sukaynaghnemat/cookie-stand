@@ -178,12 +178,14 @@ function resturent( location,minCust,maxCust,avgCookieSale){
          Lima.randomValue(23,65);
          Lima.avarge();
          Lima.render();
-
-         let arrObjects=[seatlle,Tokyo,Dubai,Paris,Lima];
-          
-         tableFooter();
          
 
+         
+        let arrObjects=[seatlle,Tokyo,Dubai,Paris,Lima];
+        tableFooter();
+         
+         
+        
 
 
 
@@ -203,14 +205,17 @@ function resturent( location,minCust,maxCust,avgCookieSale){
             let locationName=event.target.nameField.value;
             
             let minValue=event.target.boxMinimum.value;
+               minValue = parseInt(minValue);
 
             let maxValue=event.target.boxMaximum.value;
+               maxValue = parseInt(maxValue);
 
             let cookiesPerHoure=event.target.boxCookie.value;
+               cookiesPerHoure = parseFloat(cookiesPerHoure);
 
             console.log(locationName, minValue, maxValue, cookiesPerHoure)
-
-            
+               
+            //tableEl.deletRow(tableEl.rows.length);
 
             let newResturen= new resturent(locationName,minValue,maxValue,cookiesPerHoure);
 
