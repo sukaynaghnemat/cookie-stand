@@ -182,6 +182,7 @@ function resturent( location,minCust,maxCust,avgCookieSale){
 
          
         let arrObjects=[seatlle,Tokyo,Dubai,Paris,Lima];
+        
         tableFooter();
          
          
@@ -215,14 +216,14 @@ function resturent( location,minCust,maxCust,avgCookieSale){
 
             console.log(locationName, minValue, maxValue, cookiesPerHoure)
                
-            //tableEl.deletRow(tableEl.rows.length);
+            
 
             let newResturen= new resturent(locationName,minValue,maxValue,cookiesPerHoure);
-
-            
+            tableEl.deletRow(tableEl.rows.length-1);
             newResturen.randomValue(minValue, maxValue);
             newResturen.avarge();
             newResturen.render();
+            tableFooter();
 
 
 
